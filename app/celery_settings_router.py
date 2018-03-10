@@ -8,5 +8,5 @@ timezone = 'Europe/Madrid'
 enable_utc = True
 # -- JUST FOR RABBIT-MQ --
 task_annotations = {
-  'tasks.route_calculate': {'rate_limit': '10/s'}
+  'tasks.route_calculate': {'rate_limit': '100/s'}
 }

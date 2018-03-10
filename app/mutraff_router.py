@@ -1,3 +1,5 @@
+import time
+import multiprocessing as mp
 from celery import Celery
 # ========================================================================
 app = Celery()
@@ -15,6 +17,12 @@ def route_calculate(O, D):
 # -----------------------------------------------------
 @app.task
 def mutraff_route_get( vehicle_id, map, node_orig, node_dest ): 
-    out = vehicle_id + ":" + map + ":" + node_orig + ":" + node_dest
-    return out
+  out = vehicle_id + ":" + map + ":" + node_orig + ":" + node_dest
+  time.sleep(4)
+  return out
 
+# -----------------------------------------------------
+if __name__ == "__main__":
+# -----------------------------------------------------
+  memMgr = mp.Manager()
+  maps_cache = memMgr.dict()
